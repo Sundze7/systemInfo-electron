@@ -1,0 +1,15 @@
+{
+  "appId": "com.sundze-mk.systeminfo-electron",
+  "files": ["dist-elcetron", "dist-react"],
+  "icon": "./sysInfoIcon.png",
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": "utility"
+  },
+  "win": {
+    "target": ["portable", "msi"]
+  }
+}
