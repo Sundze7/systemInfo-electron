@@ -3,11 +3,19 @@ import osUtils from "os-utils";
 const POLLING_INTERVAL = 500; // runs twice/sec
 
 export function pollResources() {
-  setInterval(() => {
-    getCpuUsage();
+  setInterval(async () => {
+    const cpuUsage = await getCpuUsage();
+    const ramUsage = getRamUsage();
+    console.log({ cpuUsage, ramUsage });
   }, POLLING_INTERVAL);
 }
 
 function getCpuUsage() {
-  osUtils.cpuUsage((percentage) => console.log(percentage));
+  return new Promise((resolve) => {
+    osUtils.cpuUsage(resolve);
+  });
+}
+
+function getRamUsage() {
+  return 1 - osUtils.freememPercentage();
 }
