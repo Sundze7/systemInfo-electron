@@ -1,7 +1,8 @@
 {
   "appId": "com.sundze-mk.systeminfo-electron",
-  "files": ["dist-elcetron", "dist-react"],
+  "files": ["dist-electron", "dist-react"],
   "icon": "./sysInfoIcon.png",
+  "extraResources": ["dist-electron/preload.cjs"],
   "mac": {
     "target": "dmg"
   },
