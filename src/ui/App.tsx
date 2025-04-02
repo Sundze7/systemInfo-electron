@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import { BaseChart } from "./BaseCharts";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,11 @@ function App() {
 
   return (
     <>
+      <div style={{ height: 120 }}>
+        <BaseChart
+          data={[{ value: 0 }, { value: 30 }, { value: 100 }]}
+        ></BaseChart>
+      </div>
       <div>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />

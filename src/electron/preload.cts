@@ -19,6 +19,6 @@ function ipcOn<Key extends keyof EventPayloadMapping>(
   callback: (payload: EventPayloadMapping[Key]) => void
 ) {
   const cb = (_: Electron.IpcRendererEvent, payload: any) => callback(payload);
-  electron.ipcRender.on(key, cb);
+  electron.ipcRenderer.on(key, cb);
   return () => electron.ipcRenderer.off(key, cb);
 }

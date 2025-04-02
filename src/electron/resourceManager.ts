@@ -14,7 +14,7 @@ export function pollResources(mainWindow: BrowserWindow) {
     ipcWebContentsSend("statistics", mainWindow.webContents, {
       cpuUsage,
       ramUsage,
-      storageData: storageData.usage,
+      storageUsage: storageData.usage,
     });
   }, POLLING_INTERVAL);
 }
