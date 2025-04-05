@@ -12,12 +12,10 @@ function App() {
     [statistics]
   );
 
-  console.log(statistics);
-
   return (
     <>
       <div style={{ height: 120 }}>
-        <Charts data={cpuUsages} />
+        <Charts data={cpuUsages} maxDataPoints={10} />
       </div>
       <div>
         <a href="https://react.dev" target="_blank">
