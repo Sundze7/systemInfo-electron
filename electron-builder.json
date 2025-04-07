@@ -2,7 +2,7 @@
   "appId": "com.sundze-mk.systeminfo-electron",
   "files": ["dist-electron", "dist-react"],
   "icon": "./sysInfoIcon.png",
-  "extraResources": ["dist-electron/preload.cjs"],
+  "extraResources": ["dist-electron/preload.cjs", "src/assets/**"],
   "mac": {
     "target": "dmg"
   },
