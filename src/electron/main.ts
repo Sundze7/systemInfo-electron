@@ -3,6 +3,7 @@ import { ipcHandle, isDev } from "./util.js";
 import { getStaticData, pollResources } from "./resourceManager.js";
 import { getPreloadPath, getUIPath } from "./pathResolver.js";
 import { createTray } from "./tray.js";
+import { createMenu } from "./menu.js";
 
 // type test = string;
 
@@ -26,6 +27,7 @@ app.on("ready", () => {
   });
   createTray(mainWindow);
   handleCloseEvents(mainWindow);
+  createMenu(mainWindow);
 });
 
 function handleCloseEvents(mainWindow: BrowserWindow) {
