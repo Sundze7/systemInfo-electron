@@ -34,10 +34,15 @@ function App() {
 
   useEffect(() => {
     return window.electron.subscribeChangeView((view) => setActiveView(view));
-  });
+  }, []);
 
   return (
     <>
+      <header>
+        <button id="minimize"></button>
+        <button id="maximize"></button>
+        <button id="close"></button>
+      </header>
       <div style={{ height: 120 }}>
         <Charts data={activeUsages} maxDataPoints={10} />
       </div>

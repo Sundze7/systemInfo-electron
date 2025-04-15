@@ -12,6 +12,7 @@ app.on("ready", () => {
     webPreferences: {
       preload: getPreloadPath(),
     },
+    frame: false,
   });
   //app.getAppPath() -> gets the correct path and loads the index file for our app, regardless where the project is run
   //path.join() -> vital for windows OS, cuz it doesn't accept "/" in path
