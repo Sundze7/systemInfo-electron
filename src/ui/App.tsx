@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { useStatistics } from "./useStatistics";
 import { Charts } from "./Charts";
 
 function App() {
-  const [count, setCount] = useState(0);
   const statistics = useStatistics(10);
 
   const [activeView, setActiveView] = useState<View>("CPU");
@@ -38,41 +36,51 @@ function App() {
 
   return (
     <>
-      <header>
-        <button
-          id="minimize"
-          onClick={() => window.electron.sendFrameAction("MINIMIZE")}
-        />
-        <button
-          id="maximize"
-          onClick={() => window.electron.sendFrameAction("MAXIMIZE")}
-        />
-        <button
-          id="close"
-          onClick={() => window.electron.sendFrameAction("CLOSE")}
-        />
-      </header>
-      <div style={{ height: 120 }}>
-        <Charts data={activeUsages} maxDataPoints={10} />
+      <Header />
+      <div className="main">
+        <div>
+          <SelectOption />
+          <SelectOption />
+          <SelectOption />
+        </div>
+        <div className="mainGrid">
+          <Charts data={activeUsages} maxDataPoints={10} />
+        </div>
       </div>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
+  );
+}
+
+function SelectOption() {
+  return (
+    <button className="selectOption">
+      <div className="selectOptionTitle">
+        <div></div>
+        <div></div>
+      </div>
+      <div className="selectOptionChart">
+        <Charts data={[]} maxDataPoints={10} />
+      </div>
+    </button>
+  );
+}
+
+function Header() {
+  return (
+    <header>
+      <button
+        id="minimize"
+        onClick={() => window.electron.sendFrameAction("MINIMIZE")}
+      />
+      <button
+        id="maximize"
+        onClick={() => window.electron.sendFrameAction("MAXIMIZE")}
+      />
+      <button
+        id="close"
+        onClick={() => window.electron.sendFrameAction("CLOSE")}
+      />
+    </header>
   );
 }
 
