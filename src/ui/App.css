@@ -32,10 +32,13 @@ header button {
   display: grid;
   grid-template-columns: 16rem auto;
   gap: 1rem;
+  align-items: center;
+  margin: 1rem;
 }
 
 .mainGrid {
-  height: 120px;
+  height: 20rem;
+  padding: 0.5rem;
 }
 
 .selectOption {

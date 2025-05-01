@@ -41,16 +41,19 @@ function App() {
       <div className="main">
         <div>
           <SelectOption
+            onClick={() => setActiveView("CPU")}
             title="CPU"
             subTitle={staticData?.cpuModel ?? ""}
             data={cpuUsages}
           />
           <SelectOption
+            onClick={() => setActiveView("RAM")}
             title="RAM"
             subTitle={(staticData?.totalMemoryGB.toString() ?? "") + " GB"}
             data={ramUsages}
           />
           <SelectOption
+            onClick={() => setActiveView("STORAGE")}
             title="STORAGE"
             subTitle={(staticData?.totalStorage.toString() ?? "") + " GB"}
             data={storageUsages}
@@ -68,9 +71,10 @@ function SelectOption(props: {
   title: string;
   subTitle: string;
   data: number[];
+  onClick: () => void;
 }) {
   return (
-    <button className="selectOption">
+    <button className="selectOption" onClick={props.onClick}>
       <div className="selectOptionTitle">
         <div>{props.title}</div>
         <div>{props.subTitle}</div>
