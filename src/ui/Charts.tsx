@@ -9,12 +9,12 @@ export type ChartProps = {
 
 export const COLOR_MAP = {
   CPU: {
-    stroke: "#5DD4EE",
-    fill: "#0A4D5C",
-  },
-  RAM: {
     stroke: "#E99311",
     fill: "#5F3C07",
+  },
+  RAM: {
+    stroke: "#5DD4EE",
+    fill: "#0A4D5C",
   },
   STORAGE: {
     stroke: "#1ACF4D",
@@ -23,7 +23,10 @@ export const COLOR_MAP = {
 };
 
 export function Charts(props: ChartProps) {
-  const color = useMemo(() => COLOR_MAP[props.selectedView], []);
+  const color = useMemo(
+    () => COLOR_MAP[props.selectedView],
+    [props.selectedView]
+  );
   const preparedData = useMemo(() => {
     const points = props.data.map((point) => ({ value: point * 100 }));
     return [

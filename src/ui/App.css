@@ -16,6 +16,10 @@ header button {
   -webkit-app-region: no-drag;
 }
 
+h1 {
+  text-align: center;
+}
+
 #close {
   background-color: red;
 }
@@ -34,7 +38,6 @@ header button {
   gap: 1rem;
   align-items: center;
   margin: 1rem;
-  margin-top: 4rem;
 }
 
 .mainGrid {

@@ -38,6 +38,9 @@ function App() {
   return (
     <>
       <Header />
+      <div>
+        <h1>Electron App: System-Info</h1>
+      </div>
       <div className="main">
         <div>
           <SelectOption
