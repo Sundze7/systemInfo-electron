@@ -73,6 +73,9 @@ function App() {
           />
         </div>
       </div>
+      <div>
+        <p>@SUNDZE.APPS</p>
+      </div>
     </>
   );
 }
